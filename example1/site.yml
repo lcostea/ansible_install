@@ -4,15 +4,16 @@
   remote_user: root
   become: yes
 
-- name: NGINX | Install EPEL repository
-  yum: name=epel-release state=present
+  tasks:
+    - name: NGINX | Install EPEL repository
+      yum: name=epel-release state=present
 
-- name: NGINX | Installs nginx web server
-  yum: name=nginx state=present update_cache=true
+    - name: NGINX | Installs nginx web server
+      yum: name=nginx state=present update_cache=true
 
-- name: NGINX | Start nginx
-  service: name=nginx state=started
+    - name: NGINX | Start nginx
+      service: name=nginx state=started
 
-- name: NGINX | Upload default index.html for host
-  copy: src=index.html dest=/usr/share/nginx/html/ mode=0664
-  register: html
+    - name: NGINX | Upload default index.html for host
+      copy: src=index.html dest=/usr/share/nginx/html/ mode=0664
+      register: html
