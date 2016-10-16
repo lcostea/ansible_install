@@ -1,6 +1,8 @@
 ---
 - name: "Install Web Application"
   hosts: webserver
+  remote_user: root
+  become: yes
 
 - name: NGINX | Install EPEL repository
   yum: name=epel-release state=present
