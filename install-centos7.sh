@@ -1,6 +1,6 @@
 sudo yum -y install epel-release
 
-sudo yum -y install python-pip python-devel gcc git libffi-devel openssl-devel
+sudo yum -y install python-pip python-devel gcc git libffi-devel openssl-devel sshpass
 
 sudo `which pip` install --upgrade pip
 
