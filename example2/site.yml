@@ -1,0 +1,8 @@
+---
+  - name: "Start Installation Of <Your System goes here>"
+    hosts: redis
+    gather_facts: false
+
+    roles:
+      - { role: common}
+      - { role: redis}
