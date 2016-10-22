@@ -13,7 +13,7 @@
     owner=root
     group=root
   notify:
-    - Restart Redis
+    - REDIS | Restart Redis
 
 
 - name: "REDIS | Make sure Redis is running"
