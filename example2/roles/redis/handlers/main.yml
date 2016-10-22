@@ -1,0 +1,6 @@
+- name: "REDIS | Restart Redis"
+  service: >
+    name=redis
+    state=restarted
+  tags:
+    - redis
