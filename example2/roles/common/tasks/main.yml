@@ -1,4 +1,4 @@
-- name: "YUM | Install EPEL repository
+- name: "YUM | Install EPEL repository"
   yum: >
     name=epel-release
     state=present
