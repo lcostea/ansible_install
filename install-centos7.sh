@@ -11,3 +11,4 @@ sudo yum -y install krb5-devel krb5-libs krb5-workstation
 sudo `which pip` install kerberos requests-kerberos
 
 sudo `which pip` install --upgrade setuptools
+
