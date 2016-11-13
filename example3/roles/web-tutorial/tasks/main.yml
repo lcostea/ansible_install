@@ -16,5 +16,13 @@
       dest: /etc/web-tutorial
       remote_src: yes
 
+  - name: "WEB-APP | Set configuration"
+    template:
+      src: config.json
+      dest: "/etc/web-tutorial/config.json"
+      mode: 0644
+      owner: root
+      group: root
+
   - name: WEB-APP | Start our web app with forever
     command: forever start /etc/web-tutorial/server.js

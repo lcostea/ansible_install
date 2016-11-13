@@ -1,0 +1,9 @@
+{
+  "redis": {
+    "server": "{{ redis_server }}",
+    "port": {{ redis_port }}
+  },
+  "app": {
+    "port": {{ web_app_port }}
+  }
+}
