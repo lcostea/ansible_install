@@ -4,6 +4,7 @@
       path: /etc/web-tutorial/tmp
       state: directory
       mode: 0777
+
   - name: WEB-APP | Download web app zip file from S3
     get_url:
       url: https://s3.amazonaws.com/liviu-redis-node/web-tutorial/web-tutorial.zip
@@ -13,6 +14,7 @@
     unarchive:
       src: /etc/web-tutorial/tmp/web-tutorial.zip
       dest: /etc/web-tutorial
+      remote_src: yes
 
   - name: WEB-APP | Start our web app with forever
     command: forever start /etc/web-tutorial/server.js
