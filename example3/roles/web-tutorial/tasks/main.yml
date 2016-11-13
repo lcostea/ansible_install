@@ -1,0 +1,13 @@
+---
+  - name: WEB-APP | Download web app zip file from S3
+    get_url:
+      url: https://s3.amazonaws.com/liviu-redis-node/web-tutorial/web-tutorial.zip
+      dest: /tmp/web-tutorial.zip
+
+  - name: WEB-APP | Unzip the web app archive to the right location
+    unarchive:
+      src: /tmp/web-tutorial.zip
+      dest: /etc/web-tutorial
+
+  - name: WEB-APP | Start our web app with forever
+    command: forever start /etc/web-tutorial/server.js
