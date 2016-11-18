@@ -12,3 +12,4 @@ sudo `which pip` install kerberos requests-kerberos
 
 sudo `which pip` install --upgrade setuptools
 
+#bash <(curl -s https://raw.githubusercontent.com/lcostea/ansible_install/master/install-centos7.sh)
