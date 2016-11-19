@@ -6,7 +6,7 @@
 
 
 - name: "REDIS | Set redis.conf"
- template: >
+  template: >
     src=redis.conf
     dest="/etc/redis.conf"
     mode=0644
