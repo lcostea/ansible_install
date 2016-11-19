@@ -1,10 +1,21 @@
 ---
-  - name: "Start Installation Of <Your System goes here>"
+  - name: "Installation Of Redis"
     hosts: redis
     gather_facts: false
     remote_user: root
-    become: yes    
+    become: yes
 
     roles:
       - { role: common}
       - { role: redis}
+
+  - name: "Installation Of Web App"
+    hosts: webserver
+    gather_facts: false
+    remote_user: root
+    become: yes
+
+    roles:
+      - { role: common}
+      - { role: nodejs}
+      - { role: web-tutorial}
