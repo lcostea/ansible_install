@@ -1,0 +1,16 @@
+---
+- name: "Install Private Key"
+  hosts: 127.0.0.1
+  remote_user: root
+  become: yes
+
+  tasks:
+    - name: PRIVATE-KEY | Include var file
+      include_vars: private_key_vars.yml
+
+    - name: PRIVATE-KEY | Install ssh key
+      copy:
+        content: "{{ ssh_key  }}"
+        dest: "{{ key_file }}"
+        mode: 0600
+        owner: vagrant
