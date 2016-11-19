@@ -7,13 +7,13 @@
 
 - name: "REDIS | Set redis.conf"
  template: >
-   src=redis.conf
-   dest="/etc/redis.conf"
-   mode=0644
-   owner=root
-   group=root
- notify:
-   - REDIS | Restart Redis
+    src=redis.conf
+    dest="/etc/redis.conf"
+    mode=0644
+    owner=root
+    group=root
+  notify:
+    - REDIS | Restart Redis
 
 
 - name: "REDIS | Make sure Redis is running"
