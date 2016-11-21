@@ -33,6 +33,7 @@
     with_items:
       - 'ansible'
       - 'pywinrm'
+      - 'boto'
 
 
   - name: CentOs | Installing Kerberos Components
