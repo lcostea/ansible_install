@@ -5,4 +5,4 @@
 
   roles:
     - { role: ansible-vars, tags: always }
-    - { role: ansible, tags: always }
+    - { role: ansible-install, tags: always }
