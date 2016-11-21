@@ -1,5 +1,5 @@
 ---
-- name: "Install Private Key"
+- name: "Install Aws Key"
   hosts: 127.0.0.1
   remote_user: root
   become: yes
@@ -14,4 +14,3 @@
         dest: "{{ key_file }}"
         mode: 0600
         owner: vagrant
-

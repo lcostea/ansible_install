@@ -1,0 +1,8 @@
+---
+- name: "Install Ansible Controller"
+  hosts: all
+  gather_facts: False
+
+  roles:
+    - { role: ansible-vars, tags: always }
+    - { role: ansible, tags: always }

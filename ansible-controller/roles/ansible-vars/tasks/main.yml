@@ -1,0 +1,4 @@
+---
+
+    - name: ANSIBLE-VARS | Include cloud parameters
+      include_vars: "cloud.yml"
