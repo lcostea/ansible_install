@@ -15,7 +15,7 @@
       assign_public_ip: "yes"
       aws_access_key: "{{ aws_access_key }}"
       aws_secret_key: "{{ aws_secret_key }}"
-      instance_type: "t2.small"
+      instance_type: "t2.micro"
       image: "{{ ami_find.results[0].ami_id }}"
       wait_timeout: 900
       key_name: "{{ aws_key_name }}"
@@ -37,11 +37,11 @@
       timeout: 600
     with_items: "{{ ec2.instances }}"
 
-  - name: AWS-LINUX-NEW | Add New Instances to aws-linux Group
+  - name: AWS-LINUX-NEW | Add New Instances to centos Group
     add_host:
       name: linux-temp-{{ item.id }}
       ansible_host: "{{ item.public_ip }}"
-      groups: aws-linux
+      groups: centos
     with_items: "{{ ec2.instances }}"
 
   - set_fact:

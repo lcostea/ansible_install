@@ -8,7 +8,7 @@
       - { role: aws-ec2-linux}
 
   - name: "Installation Of Redis"
-    hosts: all
+    hosts: centos
     gather_facts: false
     remote_user: root
     become: yes
@@ -19,7 +19,7 @@
       - { role: redis}
 
   - name: "Installation Of Web App"
-    hosts: all
+    hosts: centos
     gather_facts: false
     remote_user: root
     become: yes
