@@ -4,7 +4,7 @@ sudo yum -y install python-pip python-devel gcc git libffi-devel openssl-devel s
 
 sudo `which pip` install --upgrade pip
 
-sudo `which pip` install ansible "pywinrm>=0.1.1"
+sudo `which pip` install ansible "pywinrm>=0.1.1" boto
 
 sudo yum -y install krb5-devel krb5-libs krb5-workstation
 

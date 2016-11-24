@@ -1,4 +1,4 @@
-  - name: AWS-LINUX-NEW | Find Latest Amazon Linux AMI
+  - name: AWS-LINUX-NEW | Find Latest CentOs Linux AMI
     ec2_ami_find:
       aws_access_key: "{{ aws_access_key }}"
       aws_secret_key: "{{ aws_secret_key }}"
@@ -20,7 +20,7 @@
       wait_timeout: 900
       key_name: "{{ aws_key_name }}"
       wait: yes
-      group: "ansible-controller"
+      group: "Standard"
       count: "1"
       vpc_subnet_id: "subnet-3ad30d06"
       region: "us-east-1"

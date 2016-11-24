@@ -1,14 +1,12 @@
 ---
   - name: "Installation of a New Ansible Controller"
-    hosts: all
+    hosts: localhost
     gather_facts: false
 
     roles:
       - { role: ansible-vars}
       - { role: aws-ec2-linux}
 
-
----
   - name: "Installation Of Redis"
     hosts: all
     gather_facts: false
