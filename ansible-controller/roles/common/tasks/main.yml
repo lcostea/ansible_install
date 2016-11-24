@@ -1,0 +1,14 @@
+- name: "COMMON | Install EPEL repository"
+  yum: >
+    name=epel-release
+    state=present
+
+- name: "COMMON | Install Zip package"
+  yum: >
+    name=zip
+    state=present
+
+- name: "COMMON | Install Unzip package"
+  yum: >
+    name=unzip
+    state=present

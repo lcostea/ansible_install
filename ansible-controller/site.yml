@@ -1,11 +1,33 @@
 ---
   - name: "Installation of a New Ansible Controller"
-    hosts: localhost
+    hosts: all
     gather_facts: false
 
     roles:
       - { role: ansible-vars}
       - { role: aws-ec2-linux}
 
-  - name: "Install Ansible using Ec2 New Instances"
-    include: custom_hosts.yml
+
+---
+  - name: "Installation Of Redis"
+    hosts: redis
+    gather_facts: false
+    remote_user: root
+    become: yes
+
+    roles:
+      - { role: ansible-vars}
+      - { role: common}
+      - { role: redis}
+
+  - name: "Installation Of Web App"
+    hosts: webserver
+    gather_facts: false
+    remote_user: root
+    become: yes
+
+    roles:
+      - { role: ansible-vars}
+      - { role: common}
+      - { role: nodejs}
+      - { role: web-tutorial}

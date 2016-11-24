@@ -1,0 +1,10 @@
+- name: NodeJS | Install Node JS repository
+  yum:
+    name: nodejs
+    state: present
+
+- name: "NodeJS | Install forever (to run Node.js app)."
+  npm:
+    name: forever
+    global: yes
+    state: present
