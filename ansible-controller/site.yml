@@ -10,7 +10,7 @@
 
 ---
   - name: "Installation Of Redis"
-    hosts: redis
+    hosts: all
     gather_facts: false
     remote_user: root
     become: yes
@@ -21,7 +21,7 @@
       - { role: redis}
 
   - name: "Installation Of Web App"
-    hosts: webserver
+    hosts: all
     gather_facts: false
     remote_user: root
     become: yes

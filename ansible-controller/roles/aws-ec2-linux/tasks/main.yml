@@ -3,27 +3,29 @@
       aws_access_key: "{{ aws_access_key }}"
       aws_secret_key: "{{ aws_secret_key }}"
       region: "us-east-1"
-      name: "amzn-ami-hvm-*-gp2"
+      name: "CentOS Linux 7 x86_64 HVM EBS *"
       sort: name
-      owner: amazon
+      owner: "679593333241"
       sort_order: descending
       no_result_action: fail
     register: ami_find
 
   - name: AWS-LINUX-NEW | Start 1 instances
     ec2:
+      assign_public_ip: "yes"
       aws_access_key: "{{ aws_access_key }}"
       aws_secret_key: "{{ aws_secret_key }}"
-      instance_type: "m3.medium"
+      instance_type: "t2.small"
       image: "{{ ami_find.results[0].ami_id }}"
       wait_timeout: 900
       key_name: "{{ aws_key_name }}"
       wait: yes
       group: "ansible-controller"
       count: "1"
+      vpc_subnet_id: "subnet-3ad30d06"
       region: "us-east-1"
       instance_tags:
-        Name: "Ansible Controller"
+        Name: "Started by Ansible"
     register: ec2
 
   - debug: var=ec2
