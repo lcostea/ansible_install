@@ -1,0 +1,7 @@
+---
+
+  - name: NGINX | Installs nginx web server
+    yum: name=nginx state=present update_cache=true
+
+  - name: NGINX | Start nginx
+    service: name=nginx state=started

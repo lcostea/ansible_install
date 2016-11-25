@@ -1,0 +1,12 @@
+- name: "TEST-WEB | Check node.js version"
+  shell: node --version
+  register: node_version
+
+
+- name: "TEST-WEB | Verify node.js version is > 4.*"
+  fail: msg='NodeJS version is wrong, please check'
+  when: "'4.' not in node_version.stdout_lines[0]"
+
+
+- name: "TEST-WEB | Web App returns HTTP 200"
+  uri: url:http://127.0.0.1:9161

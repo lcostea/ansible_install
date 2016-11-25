@@ -1,0 +1,2 @@
+- name: "TEST-REDIS | Redis listens on the right port"
+  wait_for: port:6379 timeout:30
