@@ -17,6 +17,7 @@
       - { role: ansible-vars}
       - { role: common}
       - { role: redis}
+      - { role: redis-test}
 
   - name: "Installation Of Web App"
     hosts: centos
@@ -29,3 +30,4 @@
       - { role: common}
       - { role: nodejs}
       - { role: web-tutorial}
+      - { role: web-test}
