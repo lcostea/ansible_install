@@ -1,5 +1,5 @@
 ---
-  - name: "Installation of a New Ansible Controller"
+  - name: "Starting a new web machine"
     hosts: localhost
     gather_facts: false
 

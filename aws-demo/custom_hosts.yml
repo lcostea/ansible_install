@@ -1,8 +1,25 @@
 ---
-- name: "Install Ansible Controller"
-  hosts: all
-  gather_facts: False
+  - name: "Installation Of Redis"
+    hosts: centos
+    gather_facts: false
+    remote_user: root
+    become: yes
 
-  roles:
-    - { role: ansible-vars, tags: always }
-    - { role: ansible-install, tags: always }
+    roles:
+      - { role: ansible-vars}
+      - { role: common}
+      - { role: redis}
+      - { role: redis-test}
+
+  - name: "Installation Of Web App"
+    hosts: centos
+    gather_facts: false
+    remote_user: root
+    become: yes
+
+    roles:
+      - { role: ansible-vars}
+      - { role: common}
+      - { role: nodejs}
+      - { role: web-tutorial}
+      - { role: web-test}
