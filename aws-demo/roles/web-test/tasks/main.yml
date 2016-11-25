@@ -9,4 +9,5 @@
 
 
 - name: "TEST-WEB | Web App returns HTTP 200"
-  uri: url:http://127.0.0.1:9161
+  uri: >
+    url:http://127.0.0.1:9161
