@@ -1,5 +1,5 @@
 ansible_user: centos
-ansible_ssh_private_key_file: /Github/ansible_install/general_key.pem
+ansible_ssh_private_key_file: /github/ansible_install/general_key.pem
 ansible_port: 22
 ansible_connection: ssh
 ansible_ssh_extra_args: '-o StrictHostKeyChecking=no'

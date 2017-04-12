@@ -13,4 +13,4 @@
         content: "{{ ssh_key  }}"
         dest: "{{ key_file }}"
         mode: 0600
-        owner: vagrant
+        owner: root
