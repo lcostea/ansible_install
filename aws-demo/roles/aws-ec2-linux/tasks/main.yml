@@ -1,46 +1,29 @@
-  - name: AWS-LINUX-NEW | Find Latest CentOs Linux AMI
-    ec2_ami_find:
+  - name: AWS-EXISTS | Discover Instances By Tag
+    ec2_remote_facts:
+      region: "eu-central-1"
       aws_access_key: "{{ aws_access_key }}"
       aws_secret_key: "{{ aws_secret_key }}"
-      region: "us-east-1"
-      name: "CentOS Linux 7 x86_64 HVM EBS *"
-      sort: name
-      owner: "679593333241"
-      sort_order: descending
-      no_result_action: fail
-    register: ami_find
-
-  - name: AWS-LINUX-NEW | Start 1 instances
-    ec2:
-      assign_public_ip: "yes"
-      aws_access_key: "{{ aws_access_key }}"
-      aws_secret_key: "{{ aws_secret_key }}"
-      instance_type: "t2.micro"
-      image: "{{ ami_find.results[0].ami_id }}"
-      wait_timeout: 900
-      key_name: "{{ aws_key_name }}"
-      wait: yes
-      group: "Standard"
-      count: "1"
-      vpc_subnet_id: "subnet-3ad30d06"
-      region: "us-east-1"
-      instance_tags:
-        Name: "Started by Ansible"
+      filters:
+        instance-state-name: running
+        "tag:Version": "{{ version }}"
+        "tag:Type": "{{ type }}"
+        "tag:Env": "{{ environment }}"
     register: ec2
+
 
   - debug: var=ec2
 
-  - name: AWS-LINUX-NEW | Wait for SSH
+  - name: AWS-EXISTS | Wait for SSH
     wait_for:
-      host: "{{ item.public_ip }}"
+      host: "{{ item.private_ip }}"
       port: 22
       timeout: 600
     with_items: "{{ ec2.instances }}"
 
-  - name: AWS-LINUX-NEW | Add New Instances to centos Group
+  - name: AWS-EXISTS | Add New Instances to centos Group
     add_host:
       name: linux-temp-{{ item.id }}
-      ansible_host: "{{ item.public_ip }}"
+      ansible_host: "{{ item.private_ip }}"
       groups: centos
     with_items: "{{ ec2.instances }}"
 
