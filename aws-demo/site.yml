@@ -30,4 +30,3 @@
       - { role: common}
       - { role: nodejs}
       - { role: web-tutorial}
-      - { role: web-test}
